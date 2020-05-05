@@ -14,6 +14,12 @@ It would be more useful to use this with other GitHub Actions' outputs.
 
 It's recommended to use this with [actions-ecosystem/action-bump-semver](https://github.com/actions-ecosystem/action-bump-semver) and [actions-ecosystem/action-push-tag](https://github.com/actions-ecosystem/action-push-tag).
 
+## Prerequisites
+
+It's necessary to create labels with `inputs.label_prefix` prefix and `major, minor, patch` suffix before getting started with this action.
+
+By default, they're `release/major`, `release/minor`, and `release/patch`.
+
 ## Inputs
 
 |      NAME      |                               DESCRIPTION                               |   TYPE   | REQUIRED |            DEFAULT            |
