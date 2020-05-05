@@ -16,7 +16,7 @@ It's recommended to use this with [actions-ecosystem/action-bump-semver](https:/
 
 ## Prerequisites
 
-It's necessary to create labels with `inputs.label_prefix` prefix and `major, minor, patch` suffix before getting started with this action.
+It's necessary to create labels with the `inputs.label_prefix` prefix and the `major, minor, patch` suffix before getting started with this action.
 
 By default, they're `release/major`, `release/minor`, and `release/patch`.
 
