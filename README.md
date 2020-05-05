@@ -6,7 +6,7 @@
 
 ![screenshot](./docs/assets/screenshot-labels.png)
 
-This is a GitHub Action to output a semver update level `major, minor, patch` from a pull request *release* label.
+This is a GitHub Action to output a semver update level `major, minor, patch` from a pull request *release label*.
 
 For example, if a pull request has the label `release/minor`, this action outputs `minor` as level.
 
