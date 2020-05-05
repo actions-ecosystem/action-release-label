@@ -1,0 +1,21 @@
+name: Actions Ecosystem Action Release Label
+description: Output semver update level from a label.
+author: Actions Ecosystem
+inputs:
+  label_prefix:
+    description: A prefix for labels that indicate semver level ({major, minor, patch}).
+    required: false
+    default: "release/"
+  event:
+    description: An event that triggers this action. Must be a pull request event.
+    required: false
+    default: ${{ toJson(github.event) }}
+outputs:
+  level:
+    description: A semver update level ({major, minor, patch}).
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: paperclip
+  color: blue
