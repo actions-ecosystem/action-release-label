@@ -14,6 +14,12 @@ It would be more useful to use this with other GitHub Actions' outputs.
 
 It's recommended to use this with [actions-ecosystem/action-bump-semver](https://github.com/actions-ecosystem/action-bump-semver) and [actions-ecosystem/action-push-tag](https://github.com/actions-ecosystem/action-push-tag).
 
+## Prerequisites
+
+It's necessary to create labels with the `inputs.label_prefix` prefix and the `major, minor, patch` suffix before getting started with this action.
+
+By default, they're `release/major`, `release/minor`, and `release/patch`.
+
 ## Inputs
 
 |      NAME      |                               DESCRIPTION                               |   TYPE   | REQUIRED |            DEFAULT            |
@@ -73,7 +79,7 @@ A practical example is below. If you're interested in the latest one, see [.gith
 ![screenshot](./docs/assets/screenshot-example-pull-request.png)
 ![screenshot](./docs/assets/screenshot-example-release.png)
 
-With this workflow, you can automatically update a Git tag and create a GitHub release with only adding a label and optionally a *release note*.
+With this workflow, you can automatically update a Git tag and create a GitHub release with only adding a *release label* and optionally a *release note* after a pull request has been merged.
 
 1. [actions-ecosystem/action-release-label](https://github.com/actions-ecosystem/action-release-label) gets a semver update level from a *release label*.
 2. [actions-ecosystem/action-get-latest-tag](https://github.com/actions-ecosystem/action-get-latest-tag) fetches the latest Git tag in the repository.
@@ -81,7 +87,7 @@ With this workflow, you can automatically update a Git tag and create a GitHub r
 4. [actions-ecosystem/action-regex-match](https://github.com/actions-ecosystem/action-regex-match) extracts a *release note* from the pull request body.
 5. [actions-ecosystem/action-push-tag](https://github.com/actions-ecosystem/action-push-tag) pushes the bumped Git tag with the pull request reference as a message.
 6. [actions/create-release](https://github.com/actions/create-release) creates a GitHub release with the Git tag and the *release note* when the semver update level is *major* or *minor*.
-7. [actions-ecosystem/action-create-comment](https://github.com/actions-ecosystem/action-create-comment) creates a comment that reports the new GitHub release.
+7. *[Optional]* [actions-ecosystem/action-create-comment](https://github.com/actions-ecosystem/action-create-comment) creates a comment that reports the new GitHub release.
 
 For further details, see each action document.
 
