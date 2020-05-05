@@ -86,7 +86,7 @@ With this workflow, you can automatically update a Git tag and create a GitHub r
 For further details, see each action document.
 
 ```yaml
-name: Release with Pull Request
+name: Create Release
 
 on:
   pull_request:
@@ -124,7 +124,7 @@ jobs:
         if: ${{ steps.release-label.outputs.level != null }}
         with:
           tag: ${{ steps.bump-semver.outputs.new_version }}
-          message: '${{ steps.bump-semver.outputs.new_version }}: PR #${{ github.event.pull_request.number }} ${{ github.event.pull_request.title }}'
+          message: "${{ steps.bump-semver.outputs.new_version }}: PR #${{ github.event.pull_request.number }} ${{ github.event.pull_request.title }}"
 
       - uses: actions/create-release@v1
         if: ${{ steps.release-label.outputs.level == 'major' || steps.release-label.outputs.level == 'minor' }}
