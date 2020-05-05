@@ -1,4 +1,4 @@
-name: Release with Pull Request
+name: Create Release
 
 on:
   pull_request:
@@ -48,7 +48,6 @@ jobs:
           body: ${{ steps.regex-match.outputs.group1 }}
 
       - uses: actions-ecosystem/action-create-comment@v1
-        if: ${{ steps.release-label.outputs.level == 'major' || steps.release-label.outputs.level == 'minor' }}
         with:
           github_token: ${{ secrets.github_token }}
           body: |
