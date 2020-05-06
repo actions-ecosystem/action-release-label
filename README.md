@@ -6,26 +6,31 @@
 
 ![screenshot](./docs/assets/screenshot-labels.png)
 
-This is a GitHub Action to output a semver update level `major, minor, patch` from a pull request *release label*.
+This is a GitHub Action to output a semver update level `major`, `minor`, `patch` from a pull request *release label*.
 
 For example, if a pull request has the label `release/minor`, this action outputs `minor` as level.
 
 It would be more useful to use this with other GitHub Actions' outputs.
-
 It's recommended to use this with [actions-ecosystem/action-bump-semver](https://github.com/actions-ecosystem/action-bump-semver) and [actions-ecosystem/action-push-tag](https://github.com/actions-ecosystem/action-push-tag).
+
+This action supports `pull_request` and `push` (merged with a pull request) events.
 
 ## Prerequisites
 
-It's necessary to create labels with the `inputs.label_prefix` prefix and the `major, minor, patch` suffix before getting started with this action.
+It's necessary to create labels with the `inputs.label_prefix` prefix and the `major`, `minor`, `patch` suffix before getting started with this action.
 
 By default, they're `release/major`, `release/minor`, and `release/patch`.
 
 ## Inputs
 
-|      NAME      |                               DESCRIPTION                               |   TYPE   | REQUIRED |            DEFAULT            |
-|----------------|-------------------------------------------------------------------------|----------|----------|-------------------------------|
-| `label_prefix` | A prefix for labels that indicate semver level `{major, minor, patch}`. | `string` | `false`  | `release/`                    |
-| `event`        | An event that triggers this action. Must be a pull request event.       | `string` | `false`  | `${{ toJson(github.event) }}` |
+|      NAME      |                                DESCRIPTION                                 |   TYPE   | REQUIRED |  DEFAULT   |
+| -------------- | -------------------------------------------------------------------------- | -------- | -------- | ---------- |
+| `label_prefix` | A prefix for labels that indicate semver level `{major, minor, patch}`.    | `string` | `false`  | `release/` |
+| `github_token` | A GitHub token. Required for `push` events, not for `pull_request` events. | `string` | `false`  | `N/A`      |
+
+If you configure a workflow with this action for `push` events, you must set `inputs.github_token`.
+
+ref: [Events that trigger workflows - GitHub Help - Pull request events for forked repositories](https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories)
 
 ## Outputs
 

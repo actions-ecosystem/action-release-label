@@ -6,10 +6,9 @@ inputs:
     description: A prefix for labels that indicate semver level ({major, minor, patch}).
     required: false
     default: "release/"
-  event:
-    description: An event that triggers this action. Must be a pull request event.
+  github_token:
+    description: A GitHub token. Required for push events, not for pull_request events.
     required: false
-    default: ${{ toJson(github.event) }}
 outputs:
   level:
     description: A semver update level ({major, minor, patch}).
