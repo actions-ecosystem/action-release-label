@@ -13,7 +13,7 @@ For example, if a pull request has the label `release/minor`, this action output
 It would be more useful to use this with other GitHub Actions' outputs.
 It's recommended to use this with [actions-ecosystem/action-bump-semver](https://github.com/actions-ecosystem/action-bump-semver) and [actions-ecosystem/action-push-tag](https://github.com/actions-ecosystem/action-push-tag).
 
-This action supports `pull_request` and `push` (merged with a pull request) events.
+This action supports `pull_request` and `push` events.
 
 ## Prerequisites
 
@@ -23,12 +23,12 @@ By default, they're `release/major`, `release/minor`, and `release/patch`.
 
 ## Inputs
 
-|      NAME      |                                DESCRIPTION                                 |   TYPE   | REQUIRED |  DEFAULT   |
-| -------------- | -------------------------------------------------------------------------- | -------- | -------- | ---------- |
-| `label_prefix` | A prefix for labels that indicate semver level `{major, minor, patch}`.    | `string` | `false`  | `release/` |
-| `github_token` | A GitHub token. Required for `push` events, not for `pull_request` events. | `string` | `false`  | `N/A`      |
+|      NAME      |                                                                         DESCRIPTION                                                                         |   TYPE   | REQUIRED |  DEFAULT   |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ---------- |
+| `label_prefix` | A prefix for labels that indicate semver level {`major`, `minor`, `patch`}.                                                                                 | `string` | `false`  | `release/` |
+| `labels`       | The list of labels for the pull request. Separated with line breaks if there're multiple labels. Required for `push` events, not for `pull_request` events. | `string` | `false`  | `N/A`      |
 
-If you configure a workflow with this action for `push` events, you must set `inputs.github_token`.
+It would be easy to prepare `inputs.labels` with [actions-ecosystem/action-get-merged-pull-request](https://github.com//actions-ecosystem/action-get-merged-pull-request).
 
 ## Outputs
 
