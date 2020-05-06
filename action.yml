@@ -6,8 +6,8 @@ inputs:
     description: A prefix for labels that indicate semver level ({major, minor, patch}).
     required: false
     default: "release/"
-  github_token:
-    description: A GitHub token. Required for push events, not for pull_request events.
+  labels:
+    description: The list of labels for the pull request. Separated with line breaks if there're multiple labels. Required for push events, not for pull_request events.
     required: false
 outputs:
   level:
