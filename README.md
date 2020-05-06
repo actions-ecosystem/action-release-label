@@ -30,8 +30,6 @@ By default, they're `release/major`, `release/minor`, and `release/patch`.
 
 If you configure a workflow with this action for `push` events, you must set `inputs.github_token`.
 
-ref: [Events that trigger workflows - GitHub Help - Pull request events for forked repositories](https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories)
-
 ## Outputs
 
 |  NAME   |                  DESCRIPTION                   |   TYPE   |
