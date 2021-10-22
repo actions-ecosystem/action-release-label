@@ -21,7 +21,7 @@ case "${GITHUB_EVENT_NAME}" in
     done
     ;;
 
-'pull_request')
+'pull_request' | 'pull_request_target')
     label=$(jq -r ".pull_request.labels[].name | select(test(\"$prefix(major|minor|patch)\"))" "${GITHUB_EVENT_PATH}")
     ;;
 
