@@ -43,4 +43,4 @@ fi
 
 level=${label#"${prefix}"} # e.g.) 'release/major' => 'major'
 
-echo "::set-output name=level::${level}"
+echo "level=${level}" >> "$GITHUB_OUTPUT"
