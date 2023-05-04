@@ -13,7 +13,7 @@ For example, if a pull request has the label `release/minor`, this action output
 It would be more useful to use this with other GitHub Actions' outputs.
 It's recommended to use this with [actions-ecosystem/action-bump-semver](https://github.com/actions-ecosystem/action-bump-semver) and [actions-ecosystem/action-push-tag](https://github.com/actions-ecosystem/action-push-tag).
 
-This action supports `pull_request` and `push` events.
+This action supports `pull_request`, `pull_request_target`, and `push` events.
 
 ## Prerequisites
 
